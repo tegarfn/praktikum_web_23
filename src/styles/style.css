@@ -1,7 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
 * {
     margin: 0;
     padding: 0;
-    font-family: 'poppins';
+    font-family: 'Poppins', sans-serif;
 }
 
 nav {
@@ -42,6 +44,7 @@ nav {
     flex-basis: 20%;
     display: flex;
     justify-content: end;
+    text-decoration: none;
 }
 
 .portal-btn button {
@@ -59,9 +62,9 @@ nav {
     scale: 110%;
 }
 
-/* #burgerbar {
+#burgerbar {
     display: none;
-} */
+}
 
 
 
@@ -150,7 +153,6 @@ nav {
     height: 40%;
     background-color: white;
 }
-
 .news-preview h3 {
     padding-top: 16px;
     padding-inline: 32px;
@@ -169,6 +171,7 @@ nav {
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
+
 
 .news-btn-container {
     flex-basis: 20%;
@@ -219,7 +222,31 @@ footer p {
     text-align: center;
 }
 
-/* @media (max-width: 640px) {
+
+
+.login-page {
+    display: flex;
+    height: 100vh;
+}
+
+.login-background {
+    flex-basis: 50%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+}
+
+.login-background img {
+    filter: brightness(70%);
+}
+
+.form-container {
+    flex-basis: 50%;
+    display: flex;
+    flex-direction: column;
+}
+
+@media (max-width: 640px) {
     nav {
         padding:  16px;
         display: flex;
@@ -244,10 +271,46 @@ footer p {
     .portal-btn {
         display: none;
     }
-    
 
 
-    We'll start here
+
+    #burgerbar {
+        display: block;
+        width: 36px;
+        background-color: white;
+        border: none;
+        cursor: pointer;
+    }
+
+    #show {
+        display: block;
+    }
+
+    #close {
+        display: none;
+    }
+
+    #nav-items {
+        display: none;
+        flex-direction: column;
+    }
+
+    #nav-items a{
+        text-align: center;
+    }
+
+    #portal-btn{
+        display: none;
+        width: 100%;
+    }
+
+    #portal-btn button{
+        width: 100%;
+    }
+
+    #portal-btn button:hover{
+        scale: 100%;
+    }
 
 
 
@@ -271,7 +334,8 @@ footer p {
 
 
     .news {
-        height: 1500px;
+        height: auto;
+        margin-block: 64px;
     }
 
     .news-title {
@@ -289,7 +353,11 @@ footer p {
         flex-basis: 5%;
     }
 
+    .news-btn-container button {
+        margin: 32px;
+    }
+
     footer p {
         padding-inline: 64px;
     }
-} */
+}
