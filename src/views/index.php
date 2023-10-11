@@ -19,13 +19,13 @@
             </button>
         </div>
         <div class="nav-items" id="nav-items">
-            <a href="./about.html">Tentang</a>
+            <a href="./about.php">Tentang</a>
             <a href="#">Akademik</a>
             <a href="#">Kampus</a>
             <a href="#">Riset</a>
             <a href="#">Berita & Acara</a>
         </div>
-        <a href="../views/login-form.html" class="portal-btn" id="portal-btn">
+        <a href="./form.php" class="portal-btn" id="portal-btn">
             <button>Portal</button>
         </a>
     </nav>
