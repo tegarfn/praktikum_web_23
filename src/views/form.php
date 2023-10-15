@@ -12,13 +12,13 @@
         <div class="form-container">
             <h1>Masuk</h1><hr>
             <form action="dashboard.php">
-                <input type="text" name="username" placeholder="Username" class="textfield">
-                <input type="password" name="password" placeholder="Password" class="textfield">
+                <input type="text" name="username" placeholder="Username" class="textfield" required>
+                <input type="password" name="password" placeholder="Password" class="textfield" required>
                 <div class="remember">
                     <input type="checkbox" name="remember" value="true">
                     <label for="remember">Ingat username ini</label>
                 </div>
-                <input type="submit" value="Masuk" class="login-btn">
+                <input type="submit" name="masuk" value="Masuk" class="login-btn">
             </form>
         </div>
     </div>

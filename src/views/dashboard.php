@@ -1,3 +1,12 @@
+<?php
+    require "../include/db_connect.php";
+
+    $result = mysqli_query($conn, "SELECT * FROM mahasiswas");
+    $mahasiswa = [];
+    while ($row = mysqli_fetch_assoc($result)) {
+        $mahasiswa[] = $row;
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,7 +38,7 @@
                 </div>
                 <div class="dash-account">
                     <img src="" alt="">
-                    <p>Tegar</p>
+                    <p></p>
                     <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M480-345 240-585l56-56 184 184 184-184 56 56-240 240Z"/></svg>
                 </div>
             </section>
@@ -37,8 +46,8 @@
                 <h1>Halo !</h1>
                 <hr><br>
                 <div class="leading-btn">
-                    <button class="add-btn">Tambah</button>
-                    <button class="history-btn">Histori</button>
+                    <a href="add.php"><button class="add-btn">Tambah</button></a>
+                    <button class="history-btn" onclick="alert('TBA!')">Histori</button>
                 </div><br>
                 <table>
                     <thead>
@@ -52,17 +61,19 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <?php $i = 1; foreach ($mahasiswa as $mhs) :?>
                         <tr>
-                            <td>1</td>
-                            <td>Tegar Fitrah Naba Atthoriq</td>
-                            <td>2009106085</td>
-                            <td>Teknik</td>
-                            <td>Informatika</td>
+                            <td><?php echo $i; ?></td>
+                            <td><?php echo $mhs['nama']; ?></td>
+                            <td><?php echo $mhs['nim']; ?></td>
+                            <td><?php echo $mhs['fakultas']; ?></td>
+                            <td><?php echo $mhs['prodi']; ?></td>
                             <td class="action">
-                                <button class="edit-btn"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24" fill="white"><path d="M200-200h56l345-345-56-56-345 345v56Zm572-403L602-771l56-56q23-23 56.5-23t56.5 23l56 56q23 23 24 55.5T829-660l-57 57Zm-58 59L290-120H120v-170l424-424 170 170Zm-141-29-28-28 56 56-28-28Z"/></svg></button>
-                                <button class="delete-btn"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24" fill="white"><path d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z"/></svg></button>
+                                <a href="edit.php?id=<?php echo $mhs['id']?>"><button class="edit-btn"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24" fill="white"><path d="M200-200h56l345-345-56-56-345 345v56Zm572-403L602-771l56-56q23-23 56.5-23t56.5 23l56 56q23 23 24 55.5T829-660l-57 57Zm-58 59L290-120H120v-170l424-424 170 170Zm-141-29-28-28 56 56-28-28Z"/></svg></button></a>
+                                <a href="delete.php?id=<?php echo $mhs['id']?>"><button class="delete-btn" onclick="confirm('Yakin ingin menghapus <?php echo $mhs['nama']?>?')"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24" fill="white"><path d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z"/></svg></button></a>
                             </td>
                         </tr>
+                        <?php $i++; endforeach; ?>
                     </tbody>
                 </table>
             </section>
