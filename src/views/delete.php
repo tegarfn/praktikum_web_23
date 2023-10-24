@@ -1,7 +1,15 @@
 <?php
     require "../include/db_connect.php";
+
     $id = $_GET['id'];
-    $get = mysqli_query($conn, "DELETE FROM mahasiswas WHERE id = $id");
+
+    $get_foto = mysqli_query($conn, "SELECT foto FROM mahasiswas WHERE id = $id");
+
+    $data_old = mysqli_fetch_array($get_foto);
+    unlink("img/".$data_old['foto']);
+
+    $result = mysqli_query($conn, "DELETE FROM mahasiswas WHERE id = $id");
+    
     $mahasiswa = [];
 
     if ($result) {
